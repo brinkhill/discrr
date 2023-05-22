@@ -1,9 +1,6 @@
-export default function Home() {
-  return (
-    <section>
-      <div>
-        <h1>Home page</h1>
-      </div>
-    </section>
-  );
+import "./main.css";
+// import Searchbar from "../components/searchbar/searchbar";
+
+export default function Page() {
+  return <div className="main">{/* <Searchbar></Searchbar> */}</div>;
 }

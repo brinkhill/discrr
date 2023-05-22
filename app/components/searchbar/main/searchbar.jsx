@@ -12,7 +12,7 @@ const SearchResults = ({ results }) => {
     <div className="search-results">
       <ul>
         {results.map((result) => (
-          <Link href={"/discs/" + result?.name_slug} key={result?.id}>
+          <Link href={"/discs/" + result?.name_slug} key={"444" + result?.name}>
             <li className="result">
               <div>
                 <span className="discName">{result?.name}</span>
@@ -36,7 +36,10 @@ const Searchbar = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let response = await fetch(`/api/simple`);
+        const response = await fetch(`/api/simple`);
+        if (!response.ok) {
+          throw new Error("Error fetching search results");
+        }
         const data = await response.json();
         setAllDiscs(data);
         setError("");

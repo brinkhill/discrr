@@ -1,4 +1,4 @@
-import Provider from "./components/Provider";
+import Provider from "./components/auth-button/Provider";
 import Nav from "./components/nav/nav";
 import Footer from "./components/footer/footer";
 import { Space_Grotesk } from "next/font/google";

@@ -36,7 +36,7 @@ const SignInButton = () => {
           </Link>
         </div>
       ) : (
-        <button className="signin-button" onClick={() => signIn()}>
+        <button className="signin-button" onClick={() => signIn("google")}>
           Sign In
         </button>
       )}

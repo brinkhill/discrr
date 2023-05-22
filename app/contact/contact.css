@@ -1,0 +1,16 @@
+.contact-main {
+  display: flex;
+  min-height: 80vh;
+  background-color: var(--background);
+  margin: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow) 0px 8px 24px;
+  transition: 0.5s;
+  padding: 20px;
+}
+
+.contact-text-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import "./searchbar.css";
 
 const SearchResults = ({ results }) => {
   if (results.length === 0) {

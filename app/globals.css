@@ -37,3 +37,18 @@ a {
   color: inherit;
   text-decoration: none;
 }
+/* putting this here instead of in a seperate sheet */
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 82vh;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.3), rgba(212, 145, 51, 0.161)), url(../public/basket-pic.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 1vh;
+  border-radius: 12px;
+}

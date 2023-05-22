@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
 
 export default async function Page({ params }) {
   const discName = params?.id;
-  const disc = await fetchDiscData(discName);
+  let disc = await fetchDiscData(discName);
 
   return (
     <div>

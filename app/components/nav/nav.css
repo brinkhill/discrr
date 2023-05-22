@@ -1,0 +1,78 @@
+nav {
+  font-weight: 600;
+  background-color: var(--background);
+  height: 7vh;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow) 0px 8px 24px;
+  justify-content: space-between;
+  padding: 40px;
+  margin: 1vh;
+  border-radius: 12px;
+  transition: 0.2s;
+}
+.tag-line {
+  font-size: 0.9em;
+  margin-top: -10px;
+  user-select: none;
+  font-style: italic;
+  transition: 0.2s;
+  z-index: 102;
+}
+.tag-line:hover {
+  font-size: 1em;
+}
+.colored-rs {
+  color: var(--fun);
+}
+
+.logo-box {
+  display: grid;
+  z-index: 102;
+}
+.discrr-logo {
+  font-size: 2.4em;
+  font-weight: 700;
+  user-select: none;
+  z-index: 102;
+}
+
+.signin-button {
+  user-select: none;
+  background-color: var(--primary);
+  box-shadow: var(--shadow) 0px 8px 24px;
+  border: medium none;
+  border-spacing: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+  margin: 0;
+  padding: 10px 15px 10px 15px;
+  transition: 0.2s;
+  font-weight: 600;
+  color: var(--background);
+  border-radius: 10px;
+  z-index: 102;
+}
+.signin-button:hover {
+  font-size: 17px;
+  background-color: var(--secondary);
+}
+
+.right-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  nav {
+    padding: 20px;
+    height: 11svh;
+  }
+  .signin-button:hover {
+    font-size: 16px;
+  }
+}

@@ -1,1 +1,39 @@
+:root {
+  /* default theme */
+  --background: #faf9fc;
+  --lighterback: #f1f0f1;
+  --primary: #3b3a3d;
+  --secondary: #908f90;
+  --shadow: rgba(149, 157, 165, 0.2);
+  --fun: #ffcd65;
+}
 
+[data-theme="dark"] {
+  --background: #2d2c2e;
+  --lighterback: #3b3a3d;
+  --primary: #feffff;
+  --secondary: #8a8b8e;
+  --shadow: rgba(78, 83, 87, 0.2);
+  --fun: #ffcd65;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  background-color: var(--lighterback);
+  transition: 0.2s;
+  color: var(--primary);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

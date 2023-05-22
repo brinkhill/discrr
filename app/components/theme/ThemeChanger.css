@@ -1,0 +1,39 @@
+.themeToggle {
+  user-select: none;
+  background-color: inherit;
+  border: medium none;
+  border-spacing: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: normal;
+  cursor: pointer;
+  margin: 0;
+  padding: 10px;
+  margin-right: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+  border-radius: 12px;
+}
+
+.sun-toggle {
+  color: var(--primary);
+  transition: 0.2s;
+  transform: rotate(-180deg);
+}
+
+.moon-toggle {
+  color: var(--primary);
+  transition: 0.2s;
+}
+
+.sun-toggle:hover {
+  color: var(--fun);
+}
+
+.moon-toggle:hover {
+  color: var(--fun);
+}

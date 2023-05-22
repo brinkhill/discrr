@@ -1,6 +1,7 @@
 import Provider from "./components/auth-button/Provider";
 import Nav from "./components/nav/nav";
 import Footer from "./components/footer/footer";
+import Head from "next/head";
 import { Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "./components/theme/ThemeProvider";
 import "./globals.css";
@@ -49,9 +50,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${space.className} `}>
-      <head>
+      <Head>
         <meta name="theme-color" content="#ffcd65" />
-      </head>
+      </Head>
       <body>
         <Provider>
           <ThemeProvider>

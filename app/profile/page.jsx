@@ -1,6 +1,7 @@
 import { getServerSession } from "next-auth/next";
 import { redirect } from "next/navigation";
 import { authOptions } from "../api/auth/[...nextauth]/route";
+import "./profile.css";
 
 const Page = async () => {
   const session = await getServerSession(authOptions);
@@ -10,11 +11,10 @@ const Page = async () => {
   }
 
   return (
-    <section className="py-24">
-      <div className="container">
-        <h1 className="text-2xl font-bold">Profile</h1>
-      </div>
-    </section>
+    <div className="profile-main">
+      <h1>Profile</h1>
+      <p>{session?.user?.name}</p>
+    </div>
   );
 };
 

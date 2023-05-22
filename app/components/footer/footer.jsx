@@ -31,7 +31,7 @@ export default function Footer() {
           .
         </Link>{" "}
         Source code on{" "}
-        <Link href={"https://github.com/brinkhill"} target="_blank" className="footer-link">
+        <Link href={"https://github.com/brinkhill/discrr"} target="_blank" className="footer-link">
           <u>
             <b>Github</b>
           </u>

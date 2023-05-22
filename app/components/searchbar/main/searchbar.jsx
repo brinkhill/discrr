@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import "./searchbar.css";
@@ -12,12 +13,12 @@ const SearchResults = ({ results }) => {
     <div className="search-results">
       <ul>
         {results.map((result) => (
-          <Link href={"/discs/" + result?.name_slug} key={"444" + result?.name}>
+          <Link href={`/discs/${result.name_slug}`} key={result.name}>
             <li className="result">
               <div>
-                <span className="discName">{result?.name}</span>
+                <span className="discName">{result.name}</span>
                 <br />
-                <span className="discBrand"> {result?.brand}</span>
+                <span className="discBrand">{result.brand}</span>
               </div>
             </li>
           </Link>
@@ -31,45 +32,45 @@ const Searchbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [allDiscs, setAllDiscs] = useState([]);
-  const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`/api/simple`);
+
         if (!response.ok) {
           throw new Error("Error fetching search results");
         }
+
         const data = await response.json();
         setAllDiscs(data);
-        setError("");
       } catch (error) {
-        setError("Error fetching search results");
+        console.error("Error fetching search results:", error);
         setAllDiscs([]);
       }
     };
+
     fetchData();
   }, []);
 
   const handleInputKeyDown = (event) => {
     if (event.key === "Enter" && searchResults.length > 0) {
-      const firstResult = searchResults[0];
-      window.location.href = `/discs/${firstResult.name_slug}`;
+      window.location.href = `/discs/${searchResults[0].name_slug}`;
     }
   };
 
   const handleInputChange = (event) => {
-    const searchQuery = event.target.value;
-    setSearchQuery(searchQuery);
+    const searchValue = event.target.value;
+    setSearchQuery(searchValue);
 
-    if (searchQuery.trim() !== "") {
-      const filteredDiscs = allDiscs.filter((disc) => disc.name.toLowerCase().includes(searchQuery.toLowerCase()));
-      setSearchResults(filteredDiscs);
-      setError("");
-    } else {
+    if (searchValue.trim() === "") {
       setSearchResults([]);
-      setError("");
+      return;
     }
+
+    const filteredDiscs = allDiscs.filter((disc) => disc.name.toLowerCase().includes(searchValue.toLowerCase()));
+
+    setSearchResults(filteredDiscs);
   };
 
   return (
@@ -102,11 +103,9 @@ const Searchbar = () => {
           autoFocus
           placeholder="Find a disc..."
         />
-        {/* <div className="command-box">
-          <span>⌘</span>K
-        </div> */}
       </div>
-      {error ? <div className="error">{error}</div> : <SearchResults results={searchResults} />}
+
+      <SearchResults results={searchResults} />
     </div>
   );
 };

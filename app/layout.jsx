@@ -3,6 +3,7 @@ import Nav from "./components/nav/nav";
 import Footer from "./components/footer/footer";
 import { Space_Grotesk } from "next/font/google";
 import { ThemeProvider } from "./components/theme/ThemeProvider";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 const space = Space_Grotesk({ subsets: ["latin"] });
@@ -59,6 +60,7 @@ export default function RootLayout({ children }) {
             <Footer />
           </ThemeProvider>
         </Provider>
+        <Analytics />
       </body>
     </html>
   );

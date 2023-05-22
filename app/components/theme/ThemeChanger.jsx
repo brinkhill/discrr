@@ -11,7 +11,7 @@ export default function ThemeChanger() {
   if (!mounted) return null;
 
   return (
-    <button className="themeToggle" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
+    <button className="themeToggle" name="Toogle Theme Button" onClick={() => setTheme(theme === "light" ? "dark" : "light")}>
       {theme === "light" ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"

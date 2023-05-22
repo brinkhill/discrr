@@ -14,6 +14,7 @@ const Page = async () => {
     <div className="profile-main">
       <h1>Profile</h1>
       <p>{session?.user?.name}</p>
+      <p>{session?.user?.email}</p>
     </div>
   );
 };

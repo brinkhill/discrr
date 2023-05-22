@@ -1,7 +1,8 @@
 {
-  "name": "next-auth-demo",
-  "version": "0.1.0",
+  "name": "discrr",
+  "version": "2.0.0",
   "private": true,
+  "author": "Brinkley Hill",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

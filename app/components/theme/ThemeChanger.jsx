@@ -1,7 +1,7 @@
 "use client";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
-import "./themeChanger.css";
+import "./ThemeChanger.css";
 
 export default function ThemeChanger() {
   const [mounted, setMounted] = useState(false);

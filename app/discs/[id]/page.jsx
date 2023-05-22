@@ -58,7 +58,7 @@ export default async function Page({ params }) {
       <div className="rr-section">
         <div className="review-header">
           <span className="review-title">Reviews</span>
-          <button className="review-button" name="Write a Review Button">
+          <button className="review-button" aria-label="Write a Review Button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"

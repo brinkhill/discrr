@@ -45,7 +45,7 @@ a {
   align-items: center;
   text-align: center;
   min-height: 82vh;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.3), rgba(212, 145, 51, 0.161)), url(../public/basket-pic.jpg);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.3), rgba(212, 145, 51, 0.161)), url(/basket-pic.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

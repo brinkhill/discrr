@@ -1,20 +1,22 @@
 import "../discs.css";
 
-export async function generateMetadata({ params }) {
-  const pageName = params.id;
+async function fetchDiscData(pageName) {
   const response = await fetch(`https://discrr.com/api/discs?name=${pageName}`);
-  let data = await response.json();
-  const name = data[0].name;
+  const discData = await response.json();
+  return discData[0];
+}
+
+export async function generateMetadata({ params }) {
+  const pageName = params?.id;
+  const disc = await fetchDiscData(pageName);
   return {
-    title: name,
+    title: disc?.name,
   };
 }
 
 export default async function Page({ params }) {
-  const pageName = params.id;
-  const response = await fetch(`https://discrr.com/api/discs?name=${pageName}`);
-  let data = await response.json();
-  const disc = data[0];
+  const discName = params?.id;
+  const disc = await fetchDiscData(discName);
 
   return (
     <div>

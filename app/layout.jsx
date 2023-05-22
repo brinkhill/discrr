@@ -49,7 +49,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${space.className} `}>
+    <html lang="en" className={`${space?.className} `}>
       <Head>
         <meta name="theme-color" content="#ffcd65" />
       </Head>

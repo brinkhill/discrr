@@ -1,28 +1,25 @@
 import clientPromise from "../../../lib/mongodb";
 
-export async function GET(req, res) {
-  // Proceed with your normal route handling code
-  const url = new URL(req.url, `http://${req.headers.get("host") ?? ""}`);
-  const discParam = url.searchParams.get("name");
+async function fetchDiscs(discParam) {
   const client = await clientPromise;
   const db = client.db("Public");
-  const discs =
-    discParam == null
-      ? await db
-          .collection("discs")
-          .find({}, { projection: { name: 1, brand: 1, name_slug: 1, _id: 0 } })
-          .sort({ metacritic: -1 })
-          .toArray()
-      : await db
-          .collection("discs")
-          .find(
-            { name_slug: { $regex: new RegExp(encodeURIComponent(discParam), "i") } },
-            { projection: { name: 1, brand: 1, name_slug: 1, _id: 0 } }
-          )
-          .sort({ metacritic: -1 })
-          .toArray();
+  let discs;
 
+  const query = discParam == null ? {} : { name_slug: { $regex: new RegExp(encodeURIComponent(discParam), "i") } };
+
+  const projection = { name: 1, brand: 1, name_slug: 1, _id: 0 };
+
+  discs = await db.collection("discs").find(query, { projection }).sort({ metacritic: -1 }).toArray();
+
+  return discs;
+}
+
+export async function GET(req, res) {
   try {
+    const url = new URL(req.url, `http://${req.headers.get("host") ?? ""}`);
+    const discParam = url.searchParams.get("name");
+    const discs = await fetchDiscs(discParam);
+
     return new Response(JSON.stringify(discs), {
       status: 200,
       headers: {
@@ -30,7 +27,9 @@ export async function GET(req, res) {
       },
     });
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
+    console.error("Error fetching discs:", error);
+
+    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
       status: 500,
       headers: {
         "content-type": "application/json",

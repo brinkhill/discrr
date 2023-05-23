@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
 import "./searchbar.css";
 
 const SearchResults = ({ results }) => {
@@ -32,6 +34,7 @@ const Searchbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [allDiscs, setAllDiscs] = useState([]);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,7 +58,7 @@ const Searchbar = () => {
 
   const handleInputKeyDown = (event) => {
     if (event.key === "Enter" && searchResults.length > 0) {
-      window.location.href = `/discs/${searchResults[0].name_slug}`;
+      router.push(`/discs/${searchResults[0].name_slug}`);
     }
   };
 

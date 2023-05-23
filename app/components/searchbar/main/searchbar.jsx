@@ -1,23 +1,34 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import SearchResults from "./SearchResults";
 import "./searchbar.css";
 
-async function getDiscs() {
-  const res = await fetch(`/api/simple`);
-  // error handler
-  if (!res.ok) {
-    throw new Error("Failed to fetch disc data");
-  }
-  return res.json();
-}
-
-export default async function Searchbar() {
+const Searchbar = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [allDiscs, setAllDiscs] = useState([]);
   const router = useRouter();
-  const discData = await getDiscs();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`/api/simple`);
+
+        if (!response.ok) {
+          throw new Error("Error fetching search results");
+        }
+
+        const data = await response.json();
+        setAllDiscs(data);
+      } catch (error) {
+        console.error("Error fetching search results:", error);
+        setAllDiscs([]);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleInputKeyDown = (event) => {
     if (event.key === "Enter" && searchResults.length > 0) {
@@ -26,13 +37,16 @@ export default async function Searchbar() {
   };
 
   const handleInputChange = (event) => {
-    let searchValue = event.target.value;
+    const searchValue = event.target.value;
     setSearchQuery(searchValue);
+
     if (searchValue.trim() === "") {
       setSearchResults([]);
       return;
     }
-    const filteredDiscs = discData.filter((disc) => disc.name.toLowerCase().includes(searchValue.toLowerCase()));
+
+    const filteredDiscs = allDiscs.filter((disc) => disc.name.toLowerCase().includes(searchValue.toLowerCase()));
+
     setSearchResults(filteredDiscs);
   };
 
@@ -62,11 +76,15 @@ export default async function Searchbar() {
           value={searchQuery}
           onChange={handleInputChange}
           onKeyDown={handleInputKeyDown}
+          required
           autoFocus
           placeholder="Find a disc..."
         />
       </div>
+
       <SearchResults results={searchResults} />
     </div>
   );
-}
+};
+
+export default Searchbar;

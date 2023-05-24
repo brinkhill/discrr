@@ -2,7 +2,6 @@ import Searchbar from "./components/searchbar/main/searchbar";
 
 export default async function Page() {
   const discs = await getDiscs();
-  console.log("got it");
   return (
     <div className="main">
       <Searchbar allDiscs={discs}></Searchbar>

@@ -1,34 +1,13 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import SearchResults from "./SearchResults";
 import "./searchbar.css";
 
-const Searchbar = () => {
+const Searchbar = ({ allDiscs }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
-  const [allDiscs, setAllDiscs] = useState([]);
   const router = useRouter();
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`/api/simple`);
-
-        if (!response.ok) {
-          throw new Error("Error fetching search results");
-        }
-
-        const data = await response.json();
-        setAllDiscs(data);
-      } catch (error) {
-        console.error("Error fetching search results:", error);
-        setAllDiscs([]);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const handleInputKeyDown = (event) => {
     if (event.key === "Enter" && searchResults.length > 0) {

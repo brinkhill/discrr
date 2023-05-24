@@ -12,7 +12,7 @@ const Page = async () => {
 
   return (
     <div className="profile-main">
-      <h1>Profile</h1>
+      <h2 className="">Profile</h2>
       <p>{session?.user?.name}</p>
       <p>{session?.user?.email}</p>
     </div>

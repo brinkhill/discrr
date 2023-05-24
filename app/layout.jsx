@@ -43,7 +43,7 @@ export const metadata = {
     "Disc golf disc selection",
   ],
   description:
-    "The #1 Website for Disc Golf Disc Ratings & Reviews. Search for any PDGA Approved Discs and see other's ratings and reviews. Sign-in to leave your own ratings and reviews.",
+    "Discover the ultimate destination for Disc Golf enthusiasts seeking comprehensive disc ratings and insightful reviews. Uncover a vast selection of PDGA Approved Discs and delve into the experiences and opinions of fellow players. Join our community by signing in to contribute your own valuable ratings and reviews. Explore, engage, and elevate your game at the unrivaled #1 source for Disc Golf Disc Ratings & Reviews.",
   manifest: `https://discrr.com/site.webmanifest`,
 };
 

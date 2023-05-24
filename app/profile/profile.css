@@ -4,4 +4,5 @@
   padding: 2vh;
   margin: 1vh;
   border-radius: 12px;
+  background-color: var(--background);
 }

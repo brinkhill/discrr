@@ -1,54 +1,54 @@
 :root {
-  /* default theme */
-  --background: #faf9fc;
-  --lighterback: #f1f0f1;
-  --primary: #3b3a3d;
-  --secondary: #908f90;
-  --shadow: rgba(149, 157, 165, 0.2);
-  --fun: #ffcd65;
+ /* default theme */
+ --background: #faf9fc;
+ --lighterback: #f1f0f1;
+ --primary: #3b3a3d;
+ --secondary: #908f90;
+ --shadow: rgba(149, 157, 165, 0.2);
+ --fun: #ffcd65;
 }
 
 [data-theme="dark"] {
-  --background: #2d2c2e;
-  --lighterback: #3b3a3d;
-  --primary: #feffff;
-  --secondary: #8a8b8e;
-  --shadow: rgba(78, 83, 87, 0.2);
-  --fun: #ffcd65;
+ --background: #2d2c2e;
+ --lighterback: #3b3a3d;
+ --primary: #feffff;
+ --secondary: #8a8b8e;
+ --shadow: rgba(78, 83, 87, 0.2);
+ --fun: #ffcd65;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+ box-sizing: border-box;
+ padding: 0;
+ margin: 0;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  text-rendering: optimizeLegibility;
-  background-color: var(--lighterback);
-  transition: 0.2s;
-  color: var(--primary);
+ max-width: 100vw;
+ overflow-x: hidden;
+ text-rendering: optimizeLegibility;
+ background-color: var(--lighterback);
+ transition: 0.2s;
+ color: var(--primary);
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+ color: inherit;
+ text-decoration: none;
 }
 /* putting this here instead of in a seperate sheet */
 .main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  min-height: 82vh;
-  background-image: radial-gradient(rgba(0, 0, 0, 0.3), rgba(212, 145, 51, 0.161)), url(/basket-pic.webp);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  margin: 1vh;
-  border-radius: 12px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+ text-align: center;
+ min-height: 82vh;
+ background-image: radial-gradient(rgba(0, 0, 0, 0.3), rgba(212, 145, 51, 0.161)), url(/yellow-basket.webp);
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+ margin: 1vh;
+ border-radius: 12px;
 }
